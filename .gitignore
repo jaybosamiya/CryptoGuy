@@ -43,3 +43,5 @@
 .Trash-*
 
 
+#vim files
+.*.swp
