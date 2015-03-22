@@ -20,8 +20,8 @@ if ( lowercase != 0 && uppercase == 0 ) {
 	for ( string::iterator it = e.begin() ; it != e.end() ; it++ ) {
 		int z = *it - low;
 		if ( ! ( z >= 0 && z < 26 ) ) { ret.push_back(*it); continue; }
-		z *= a_inv;
 		z -= b;
+		z *= a_inv;
 		z %= modulo;
 		z += modulo;
 		z %= modulo;
@@ -39,8 +39,8 @@ if ( lowercase == 0 && uppercase != 0 ) {
         for ( string::iterator it = e.begin() ; it != e.end() ; it++ ) {
                 int z = *it - low;
 		if ( ! ( z >= 0 && z < 26 ) ) { ret.push_back(*it); continue; }
-                z *= a_inv;
                 z -= b;
+                z *= a_inv;
                 z %= modulo;
                 z += modulo;
                 z %= modulo;
@@ -58,8 +58,8 @@ if ( lowercase == 0 && uppercase != 0 ) {
 		if ( z >= 'A' && z <= 'Z' ) { z -= 'A'; }
 		else if ( z >= 'a' && z <= 'z' ) { z -= 'a'; z += 26; }
 		else { ret.push_back((char)z); continue; }
-                z *= a_inv;
                 z -= b;
+                z *= a_inv;
                 z %= modulo;
                 z += modulo;
                 z %= modulo;
