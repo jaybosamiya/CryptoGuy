@@ -1,0 +1,17 @@
+string ret;
+for ( string::iterator it = e.begin() ; it != e.end() ; it++ ) {
+	if ( *it >= 'a' && *it <= 'z' ) {
+		int z = *it - 'a';
+		z = 25-z;
+		z += 'a';
+		ret.push_back(z);
+	} else if ( *it >= 'A' && *it <= 'Z' ) {
+		int z = *it - 'A';
+		z = 25-z;
+		z += 'A';
+		ret.push_back(z);
+	} else {
+		ret.push_back(*it);
+	}
+}
+return ret;
