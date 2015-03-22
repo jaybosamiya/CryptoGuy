@@ -18,6 +18,7 @@ namespace decrypter {
 	void init() {
 		dfv.push_back(Trivial);
 		dfv.push_back(Atbash);
+		dfv.push_back(Base64);
 		kdfv.push_back(Trivial_Keyed);
 		kdfv.push_back(Affine);
 	}
