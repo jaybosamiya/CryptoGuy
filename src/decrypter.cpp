@@ -43,7 +43,9 @@ namespace decrypter {
 
 	void output_all(vector<string> decryption_algo, vector<string> decrypted_strings) {
 		for ( int i = 0 ; i < (int)decrypted_strings.size() ; i++ ) {
-			cout << decryption_algo[i] << ":\t" << decrypted_strings[i] << endl;
+			if ( decrypted_strings[i].size() != 0 ) {
+				cout << decryption_algo[i] << ":\t" << decrypted_strings[i] << endl;
+			}
 		}
 	}
 
