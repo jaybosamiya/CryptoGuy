@@ -17,7 +17,7 @@ namespace decrypter {
 
 	void init() {
 		dfv.push_back(Trivial);
-//		kdfv.push_back();
+		kdfv.push_back(Trivial_Keyed);
 	}
 
 	void output_all(vector<string> decryption_algo, vector<string> decrypted_strings);

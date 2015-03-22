@@ -24,6 +24,15 @@ for i in decrypt_algos/*; do
 	cat $i >> generated_algos.cpp
 	echo "}" >> generated_algos.cpp
 done
+for i in keyed_decrypt_algos/*; do
+        ALGO_NAME=`basename $i`
+        SPACED_ALGO_NAME=`echo $ALGO_NAME | sed 's/_/ /g'`
+        echo "std::string $ALGO_NAME (std::string e, std::string k);" >> generated_algos.h
+        echo "string $ALGO_NAME (string e, string k) {" >> generated_algos.cpp
+        echo "if ( e.empty() ) return \"$SPACED_ALGO_NAME\";" >> generated_algos.cpp
+        cat $i >> generated_algos.cpp
+        echo "}" >> generated_algos.cpp
+done
 
 ## Create the endings of the files
 echo "}" >> generated_algos.h
