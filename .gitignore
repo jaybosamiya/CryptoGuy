@@ -1,5 +1,9 @@
 /build/
 
+# Prevent generated algos from being added
+
+/src/generated_algos.*
+
 # Created by https://www.gitignore.io
 
 ### C++ ###

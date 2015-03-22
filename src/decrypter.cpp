@@ -1,4 +1,5 @@
 #include "decrypter.h"
+#include "generated_algos.h"
 
 #include <iostream>
 
@@ -14,21 +15,9 @@ namespace decrypter {
 	vector<DecryptionFunction> dfv;
 	vector<KeyedDecryptionFunction> kdfv;
 
-	string trivial_decryption (string e) {
-		if ( e.empty() )
-			return "Trivial";
-		return e;
-	}
-
-	string trivial_keyed_decryption (string e, string k) {
-		if ( e.empty() )
-			return "Trivial Keyed";
-		return e+k;
-	}
-
 	void init() {
-		dfv.push_back(trivial_decryption);
-		kdfv.push_back(trivial_keyed_decryption);
+		dfv.push_back(Trivial);
+//		kdfv.push_back();
 	}
 
 	void output_all(vector<string> decryption_algo, vector<string> decrypted_strings);
