@@ -1,0 +1,69 @@
+vector<int> key = read_ints(k);
+if ( key.size() != 2 )
+	return "";
+string ret;
+int lowercase = 0, uppercase = 0;
+for ( string::iterator it = e.begin() ; it != e.end() ; it++ ) {
+	if ( *it >= 'a' && *it <= 'z' )
+		lowercase++;
+	if ( *it >= 'A' && *it <= 'Z' )
+		uppercase++;
+}
+if ( lowercase == 0 && uppercase == 0 )
+	return e;
+if ( lowercase != 0 && uppercase == 0 ) {
+	char low = 'a';
+	int modulo = 26;
+	int a_inv = modInverse(key[0],modulo);
+	if ( (a_inv * key[0])%modulo != 1 ) return "";
+	int b = key[1];
+	for ( string::iterator it = e.begin() ; it != e.end() ; it++ ) {
+		int z = *it - low;
+		if ( ! ( z >= 0 && z < 26 ) ) { ret.push_back(*it); continue; }
+		z *= a_inv;
+		z -= b;
+		z %= modulo;
+		z += modulo;
+		z %= modulo;
+		z += low;
+		ret.push_back((char)z);
+	}
+	return ret;
+}
+if ( lowercase == 0 && uppercase != 0 ) {
+        char low = 'A';
+        int modulo = 26;
+        int a_inv = modInverse(key[0],modulo);
+	if ( (a_inv * key[0])%modulo != 1 ) return "";
+        int b = key[1];
+        for ( string::iterator it = e.begin() ; it != e.end() ; it++ ) {
+                int z = *it - low;
+		if ( ! ( z >= 0 && z < 26 ) ) { ret.push_back(*it); continue; }
+                z *= a_inv;
+                z -= b;
+                z %= modulo;
+                z += modulo;
+                z %= modulo;
+                z += low;
+                ret.push_back((char)z);
+        }
+        return ret;
+}
+        int modulo = 26+26;
+        int a_inv = modInverse(key[0],modulo);
+	if ( (a_inv * key[0])%modulo != 1 ) return "";
+        int b = key[1];
+        for ( string::iterator it = e.begin() ; it != e.end() ; it++ ) {
+                int z = *it;
+		if ( z >= 'A' && z <= 'Z' ) { z -= 'A'; }
+		else if ( z >= 'a' && z <= 'z' ) { z -= 'a'; z += 26; }
+		else { ret.push_back((char)z); continue; }
+                z *= a_inv;
+                z -= b;
+                z %= modulo;
+                z += modulo;
+                z %= modulo;
+                if ( z < 26 ) { z += 'A'; } else { z += 'a'-26; }
+                ret.push_back((char)z);
+        }
+        return ret;
