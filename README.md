@@ -1,7 +1,7 @@
 CryptoGuy
 =========
 
-CryptoGuy is supposed to be a tool to be use to figure out which algo is being used for any random given string.
+CryptoGuy is supposed to be a tool to be use to figure out which algo is being used for any random given string. It has been created especially to aid in CTFs to find flags in crypto questions.
 
 Usage
 -----
